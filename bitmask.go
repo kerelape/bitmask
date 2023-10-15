@@ -1,8 +1,5 @@
-// Package bitmask provides type-safe functionality
-// to operate on bit masks in more convenient way, than
-// bitwise operators on simple integer types, making
-// the client code more readable, and, thus, more
-// maintanable.
+// Package provides a type-safe and verbose way to
+// conveniently operate on bit mask
 package bitmask
 
 // Mask is a shorthand for uint64.
