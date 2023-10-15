@@ -8,11 +8,14 @@ package bitmask
 // Mask is a shorthand for uint64.
 type Mask = uint64
 
+// Flag is a bit flag associated with a mask.
+type Flag[M ~Mask] uint64
+
 // Init returns a new mask with flags applied to it.
 func Init[M ~Mask](flags ...Flag[M]) M {
 	var mask M
 	for _, flag := range flags {
-		flag.SetIn(&mask)
+		mask = Set(mask, flag)
 	}
 	return mask
 }
@@ -51,13 +54,13 @@ func Toggle[M ~Mask](a, b M) M {
 	return a ^ b
 }
 
-// With returns the mask with the flag set.
-func With[M ~Mask](mask M, flag Flag[M]) M {
+// Set returns the mask with the flag set.
+func Set[M ~Mask](mask M, flag Flag[M]) M {
 	return Merge(mask, (M)(flag))
 }
 
-// Without returns the mask without the flag.
-func Without[M ~Mask](mask M, flag Flag[M]) M {
+// Clear returns the mask without the flag.
+func Clear[M ~Mask](mask M, flag Flag[M]) M {
 	return Subtract(mask, (M)(flag))
 }
 
