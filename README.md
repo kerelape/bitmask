@@ -10,8 +10,6 @@ First, to use this library you need to add it to your go module:
 $ go get github.com/kerelape/bitmask
 ```
 
-### Mask
-
 Functions in this module can work with any `uint64` derivative,
 but for convenience there is a predefined type alias called
 `Mask`, and it is recommended to use it as the base type for
@@ -58,26 +56,4 @@ Then you can work with the mask:
 hasFlag1 := bitmask.Has(mask, MyMaskFlag1) // true if the flag is set in the mask
 mask = bitmask.Set(mask, MyMaskFlag2) // sets the flag to the mask and returns it
 mask = bitmask.Clear(mask, MyMaskFlag1) // unsets the flag in the mask and returns it
-```
-
-### Flag
-
-Declare flags:
-
-```go
-const (
-    Flag1 bitmask.Flag[MyMask] = 1 << iota
-    Flag2
-    Flag3
-    ...
-    FlagN
-)
-```
-
-And use them:
-
-```go
-mask := bitmask.New[MyMask](Flag1, Flag2)
-mask = bitmask.Set(mask, Flag3)
-mask = bitmask.Clear(mask, Flag2)
 ```
