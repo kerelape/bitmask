@@ -58,6 +58,8 @@ Then you can work with the mask:
 hasFlag1 := bitmask.Has(mask, MyMaskFlag1) // true if the flag is set in the mask
 mask = bitmask.Set(mask, MyMaskFlag2) // sets the flag to the mask and returns it
 mask = bitmask.Clear(mask, MyMaskFlag1) // unsets the flag in the mask and returns it
+```
+
 ### Flag
 
 Declare flags:
@@ -78,6 +80,4 @@ And use them:
 mask := bitmask.New[MyMask](Flag1, Flag2)
 mask = bitmask.Set(mask, Flag3)
 mask = bitmask.Clear(mask, Flag2)
-```
-
 ```
