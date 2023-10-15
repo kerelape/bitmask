@@ -1,4 +1,4 @@
-# bitmask
+# bitmask [![Go Reference](https://pkg.go.dev/badge/github.com/kerelape/bitmask.svg)](https://pkg.go.dev/github.com/kerelape/bitmask) [![codecov](https://codecov.io/gh/kerelape/bitmask/graph/badge.svg?token=dMuozuGmFd)](https://codecov.io/gh/kerelape/bitmask)
 
 bitmask provides a type-safe and verbose way to conveniently
 operate on bit masks.
