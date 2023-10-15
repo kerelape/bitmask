@@ -11,8 +11,8 @@ type Mask = uint64
 // Flag is a bit flag associated with a mask.
 type Flag[M ~Mask] uint64
 
-// Init returns a new mask with flags applied to it.
-func Init[M ~Mask](flags ...Flag[M]) M {
+// New returns a new mask with flags applied to it.
+func New[M ~Mask](flags ...Flag[M]) M {
 	var mask M
 	for _, flag := range flags {
 		mask = Set(mask, flag)
