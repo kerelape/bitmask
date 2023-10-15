@@ -104,3 +104,50 @@ func TestSet(t *testing.T) {
 		)
 	})
 }
+
+func TestClear(t *testing.T) {
+	t.Run("With empty flag", func(t *testing.T) {
+		assert.Equal(
+			t,
+			bitmask.New[Mask](Flag1, Flag2),
+			bitmask.Clear(
+				bitmask.New[Mask](Flag1, Flag2),
+				EmptyFlag,
+			),
+			"Clear with empty flag must not modify the mask",
+		)
+	})
+	t.Run("With unset flag", func(t *testing.T) {
+		assert.Equal(
+			t,
+			bitmask.New[Mask](Flag2),
+			bitmask.Clear(
+				bitmask.New[Mask](Flag2),
+				Flag1,
+			),
+			"Clear with an unset flag must not modify the mask",
+		)
+	})
+	t.Run("With empty mask", func(t *testing.T) {
+		assert.Equal(
+			t,
+			EmptyMask,
+			bitmask.Clear(
+				EmptyMask,
+				Flag1,
+			),
+			"Clear with an empty mask must not modify it",
+		)
+	})
+	t.Run("With real flag", func(t *testing.T) {
+		assert.Equal(
+			t,
+			EmptyMask,
+			bitmask.Clear(
+				bitmask.New[Mask](Flag1),
+				Flag1,
+			),
+			"Clear with a flag on a mask with that flag must clear the flag",
+		)
+	})
+}
